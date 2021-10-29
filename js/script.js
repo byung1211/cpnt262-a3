@@ -1,7 +1,9 @@
 "use strict";
 
+// Initial gallery type
 const default_show_type = "show-all-btn";
 
+// Retreive data from the API server
 function retreiveData(showType){
  
   console.log('index:retreiveData() - start');
@@ -11,6 +13,7 @@ function retreiveData(showType){
 
     console.log('index:retreiveData:fetch:response check');
     
+    // Check the response
     if(!response.ok){
       throw new Error(response.status+": "+response.statusText);
     }
@@ -21,6 +24,7 @@ function retreiveData(showType){
     
     console.log('index:retreiveData:fetch:extract data as json');
 
+    // Turn the data into a json object
     return response.json()
   })
   .then(data => {
@@ -30,10 +34,11 @@ function retreiveData(showType){
     console.log("Total charactor number:"+data.length);
     console.log("RAW Data:"+data);
 
-    // Todo: null check
+    // Check the data
     if(!Array.isArray(data) && !(data.length < 1))
       showType = 'no-data';  
     
+    // Decide the type of the gallery
     if(showType === 'show-all-btn')
       renderAllChracters(data);
     else if(showType === 'show-random-btn')
@@ -51,6 +56,7 @@ function retreiveData(showType){
   console.log('index:retreiveData()- end');
 }
 
+// Manipulate the html for all characters
 function renderAllChracters(data){
  
   console.log('index:renderAllChracters()- start');
@@ -74,6 +80,7 @@ function renderAllChracters(data){
    console.log('index:renderAllChracters()- end');
 }
 
+// Manipulate the html for a single random character
 function renderRadomChracter(data){
 
   console.log('index:renderRadomChracter()- start');
@@ -99,6 +106,7 @@ function renderRadomChracter(data){
   console.log('index:renderRadomChracter()- end');
 }
 
+// Manipulate the html for No data from the server
 function renderNotFoundMessage(){
 
   console.log('index:renderNotFoundMessage() - start');
@@ -108,6 +116,7 @@ function renderNotFoundMessage(){
   console.log('index:renderNotFoundMessage() - end');
 }
 
+// Manipulate the html for Invaild Data from the server
 function renderInvalidMessage(){
 
   console.log('index:renderInvalidMessage() - start');
@@ -117,7 +126,7 @@ function renderInvalidMessage(){
   console.log('index:renderInvalidMessage() - end');
 }
 
-
+// Manipulate the html for Error situations
 function renderErrorMessage(errMessage){
 
   console.log('index:renderErrorMessage()- start');
@@ -128,6 +137,7 @@ function renderErrorMessage(errMessage){
   console.log('index:renderRadomChracter()- end');
 }
 
+// Show the output html in the page.
 function renderHtml(outputHtml){
 
   console.log('index:renderHtml() - start');
@@ -138,6 +148,7 @@ function renderHtml(outputHtml){
   console.log('index:renderHtml() - end');
 }
 
+// Initialize the page
 function init(){
 
   console.log('index:init() - start');
@@ -158,7 +169,7 @@ function init(){
   console.log('index:init() - end');
 }
 
-
+// Call the function to prepare the html page
 init();
 
 
