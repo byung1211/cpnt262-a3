@@ -1,17 +1,100 @@
+
+/* Common style -  start */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+body {
+  padding: 0px;
+  margin: 0px;
+  min-height:100vh;
+  background-color:#DCDCDC;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Gothic', Arial, sans-serif;
+}
+p {
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+li {
+  font-family: Arial, sans-serif;
+}  
+/* Common style -  end */
+
+header {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.control {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+
 .gallery {
+  margin-top: 50px;;
   display:flex;
   flex-wrap: wrap;
   justify-content:center;
-  align-items: center;
-  max-width: 1200px;
-  margin:auto;
+  gap: 15px;
 }
 
-.gallery > * {
-  margin: 1em;
+figure {
+  border: 2px solid black;
+  margin: 0px;
+  ;
+}
+figure:hover {
+  border: 2px solid red;
+  cursor: pointer;
+}
+
+figcaption {
+  text-align: center;
+  color:white;
+  height:25px;
+  padding: 3px;
+  background-color:grey;
 }
 
 img {
-  width: 100%;
-  height: 100vh;
+  display: block;
+  margin:auto;
 }
+
+a {
+  text-decoration: none !important;
+}
+
+.error {
+  color:red;
+}
+
+/* Button Style - start */
+.styled {
+  border: 0;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 10px;
+  background-color: rgba(220, 0, 0, 1);
+  background-image: linear-gradient(to top left,
+                                    rgba(0, 0, 0, .2),
+                                    rgba(0, 0, 0, .2) 30%,
+                                    rgba(0, 0, 0, 0));
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+              inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.styled:hover {
+  background-color: rgba(255, 0, 0, 1);
+}
+
+.styled:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+              inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+/* Button Style - end */
